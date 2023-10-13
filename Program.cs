@@ -5,25 +5,23 @@ using System.Text;
 class Program{
     HttpListener listener = new HttpListener();
     void startS(){
-        
+        string filename = "coin_save";
         byte[][] b = new byte[3][];
-        byte[][] c = new byte[3][];
-        b[0] = new byte[1024];
-        b[1] = new byte[1024];
-        User.RegisterVIA("root",b);
-        Console.WriteLine(Convert.ToBase64String(b[0]) + "\n" + Convert.ToBase64String(b[1]));
-        //User u = User.GetUsers()[0];
-        //Console.WriteLine(u.verify(b[1]));
-        //Console.WriteLine(User.getBalance("Stigl"));
-        //u.generatePaymentCard(1,c,b[1]);
-        //Console.WriteLine(Convert.ToBase64String(c[0])+"\n"+Convert.ToBase64String(c[1]));
-        //Environment.Exit(0);
+        if(File.Exists(filename))
+            User.import(File.ReadAllText(filename));
+        else{
+            User.RegisterVIA("root",b);
+            User.export();
+            Console.WriteLine(Convert.ToBase64String(b[0]) + "\n" + Convert.ToBase64String(b[1]));
+        }
         listener.Start();
         listener.Prefixes.Add("http://*:2513/");
+        
         Console.WriteLine("Server running");
         while(true){
             var context = listener.GetContext();
             handleClient(context);
+            Task.Run(() =>User.export());
         }
     }
     void getStats(HttpListenerContext context){
@@ -107,3 +105,10 @@ class Program{
     }
     public static void Main(string[]args) => new Program().startS();
 }
+//byte[][] c = new byte[3][];
+        //User u = User.GetUsers()[0];
+        //Console.WriteLine(u.verify(b[1]));
+        //Console.WriteLine(User.getBalance("Stigl"));
+        //u.generatePaymentCard(1,c,b[1]);
+        //Console.WriteLine(Convert.ToBase64String(c[0])+"\n"+Convert.ToBase64String(c[1]));
+        //Environment.Exit(0);

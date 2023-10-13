@@ -28,6 +28,8 @@ class Security{
     }
 }
 class User{
+    static Mutex mutex = new Mutex(false);
+    static bool eximporting = false;
     static List<User> users = new();
     public static List<User> GetUsers(){
         return users;
@@ -85,6 +87,7 @@ class User{
         withdrawable = false;
         Console.WriteLine("User with name: " + username);
     }
+    public User(){}
     public static bool payment(byte[] priv, byte[] pub, byte[] pub2, long value){
         if(value <= 0)return false;
         int id=-1, id2 = -1;
@@ -112,4 +115,36 @@ class User{
     byte[] pub, pri;
     string username;
     long balance;
+    public static void export(){
+        while(!mutex.WaitOne());
+        string savescript = "";
+        foreach(User u in users){
+            string line = "";
+            line+= u.withdrawable + "&"
+                +u.username + "&"
+                +Convert.ToBase64String(u.pub)+"&"
+                +Convert.ToBase64String(u.pri)+"&"
+                +u.balance.ToString();
+            savescript += line + "\n";
+        }
+        StreamWriter writer = new StreamWriter("coin_save");
+        writer.Write(savescript);
+        writer.Close();
+        mutex.ReleaseMutex();
+    }
+    public static void import(string input){
+        string[] strings = input.Split('\n');
+        foreach(string str in strings){
+            if(str.Length < 1)continue;
+            string[] parts = str.Split('&');
+            Console.WriteLine(parts[4]);
+            users.Add(new User(){
+                withdrawable = bool.Parse(parts[0]),
+                username = parts[1],
+                pub = Convert.FromBase64String(parts[2]),
+                pri = Convert.FromBase64String(parts[3]),
+                balance = long.Parse(parts[4])
+            });
+        }
+    }
 }
