@@ -1,0 +1,105 @@
+    Perfectly Free Software Church
+    Public License v1.1 revision 0
+
+    Oct 16, 2023
+    <https://fsc.pogging.fish>
+------------------------------------
+
+
+PPL refers to the Perfectly Free Software Church Public License.
+PPL refers to any PPL license provided by the PFSC official website(s).
+
+PPLv1.1 refers to this license.
+Afree refers to free software as in without ads or trackers.
+      Afree software also provides the source code and allows
+      distribution and anyone to use it. Afree software must
+      be free as in price as well, meaning obtaining a copy
+      must involve no transactions.
+Software refers to any files distributed along with this license.
+
+(1.) Software provided under this license must be afree.
+(2.) This license may be changed to future versions of PPL, but the license may not be
+     removed or changed to a non-PPL license. You may simply replace the previous license
+     with a new version without stating.
+(3.) This license must be distributed along with any software using it.
+(4.) You are permitted to use this software in any commercial or non-commercial situation.
+(5.) Modification is allowed under these terms.
+    (5.1) Modification is permitted when the original creator is credited somewhere in the software.
+        (5.1.1) "Credit" refers to including where you originally obtained the software.
+    (5.2) This license, or future versions (see 2.), must be distributed along with the modified version of this software.
+    (5.3) You must explicitly state that you modified the software.
+(6.) If this software is used on any service, then the said service must distribute this license somewhere publicly-facing.
+     The same publicly-facing area must also include credit to the original author
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the license is distributed on an "AS IS" basis.
+WITHOUT warranties or conditions of any kind, either express or implied.
+See the license for the specific language governing permissions and
+limitations under the license.
+
+-- Using this license --
+
+This information is for the user of the license, this info is not enforced in any way unless there is an asterisk (*) at the start of the
+sentence.
+
+*The license must not be changed from the original file retrieved from PFSC unless explicitly said in the modified license.
+
+Put the license in a file named LICENSE. This file can include either the HTML or plain text license.
+
+Include where you can find this license at the top of source files.
+
+-- Crediting users effectively --
+
+These rules MUST be followed.
+
+If you copied a source file from the software, include a comment at the top following this specific format.
+
+Obtained software from <SOURCE> by <AUTHOR>
+
+If the author's name is unknown, you can leave out the by <AUTHOR>.
+You also do not need to include the '<' and '>' symbols.
+
+Python Example:
+
+# Obtained software from https://example.com/file.py by John Doe
+
+If the original source no longer exists, credit is no longer necessary.
+
+If you have copied a non-source file (binary, plaintext, etc) or the specific language does not support comments,
+create a file called CREDITS in the root directory of your project, then add this line for each project using
+PPLv1.1 or greater.
+
+Using <SOFTWARE_NAME> by <AUTHOR> from <SOURCE>
+
+If the author's name is unknown, you can leave out the by <AUTHOR>.
+You also do not need to include the '<' and '>' symbols.
+If the software name is unknown, you can leave out the Using <SOFTWARE_NAME>
+
+-- Distribution of PPL --
+
+These rules MUST be followed.
+
+If you copied a source file from the software, include a comment at the top following this specific format.
+
+This software has been distributed under the <PPL VERSION> license. <LINK TO LICENSE>
+
+You also do not need to include the '<' and '>' symbols.
+<LINK TO LICENSE> must either be a valid file or webpage containing a valid, non-modified version of the
+PPL license used by the software.
+
+Example (Software using PPLv1.1, Python):
+
+# This software has been distributed under the PPLv1.1 license. https://fsc.pogging.fish/license/txt/pplv1.1.txt
+
+If you have copied a non-source file (binary, plaintext, etc) or the specific language does not support comments,
+create a file called LICENSES in the root directory of your project, then add this line for each file using
+PPLv1.1 or greater.
+
+<SOFTWARE PATH> has been distributed under the <PPL VERSION> license. <LINK TO LICENSE>
+
+<LINK TO LICENSE> must either be a valid file or webpage containing a valid, non-modified version of the
+PPL license used by the software.
+
+<SOFTWARE PATH> must be where the user can find the software using PPLv1.1
+
+You also do not need to include the '<' and '>' symbols.
